@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - master   # ensure this matches your release branch
+      - semantic-release   # ensure this matches your release branch
 
 permissions:
   contents: write   # required to push tags
