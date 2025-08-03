@@ -1,24 +1,24 @@
-name: Release
+name: Semantic Release Test
 
 on:
   push:
     branches:
-      - semantic-release   # ensure this matches your release branch
+      - semantic-release   # ✅ only triggers on this branch
 
 permissions:
-  contents: write   # required to push tags
-  issues: write     # required to create GitHub releases
+  contents: write
+  issues: write
   pull-requests: write
 
 jobs:
-  release:
+  release-test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0   # required for semantic-release to access tags
+          fetch-depth: 0   # semantic-release needs full history
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -29,37 +29,28 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # ✅ Debug Step: Show Environment Variables & Git Info
+      # ✅ Debugging Info
       - name: Debug Environment
         run: |
-          echo "Current Branch: $(git rev-parse --abbrev-ref HEAD)"
-          echo "Available Tags:"
+          echo "🔍 Current Branch: $(git rev-parse --abbrev-ref HEAD)"
+          echo "🔍 Git Tags:"
           git tag
-          echo "Node Version:"
+          echo "🔍 Node Version:"
           node -v
-          echo "NPM Version:"
+          echo "🔍 NPM Version:"
           npm -v
 
-      # ✅ Debug Step: Test if Tokens Exist
+      # ✅ Verify Secrets Exist
       - name: Verify Secrets
         run: |
           if [ -z "$GITHUB_TOKEN" ]; then echo "❌ GITHUB_TOKEN not found"; exit 1; fi
           if [ -z "$NPM_TOKEN" ]; then echo "❌ NPM_TOKEN not found"; exit 1; fi
-          echo "✅ Tokens are set"
+          echo "✅ Tokens detected"
 
-      # ✅ Dry Run First (See What Would Happen)
-      - name: Semantic Release (Dry Run - Debugging)
+      # ✅ Run Semantic Release in Debug Dry-Run Mode
+      - name: Semantic Release Dry Run
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # or secrets.GH_TOKEN if using a PAT
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # or map secrets.GH_TOKEN here
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           DEBUG: semantic-release:*
         run: npx semantic-release --dry-run
-
-      # ✅ Actual Release (Only Runs if Dry Run Passes)
-      - name: Semantic Release (Actual Run)
-        if: success()
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          DEBUG: semantic-release:*
-        run: npx semantic-release
