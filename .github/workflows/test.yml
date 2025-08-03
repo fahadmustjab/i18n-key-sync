@@ -3,7 +3,7 @@ name: Semantic Release Test
 on:
   push:
     branches:
-      - semantic-release   # ✅ only triggers on this branch
+      - feat/semantic-release   # ✅ only triggers on this branch
 
 permissions:
   contents: write
