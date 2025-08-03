@@ -1,0 +1,7 @@
+{
+  "extension": ["ts"],
+  "spec": ["tests/**/*.spec.ts"],
+  "loader": "ts-node/esm",
+  "$schema": "https://json.schemastore.org/mocharc.json",
+  "require": "tsx"
+}
