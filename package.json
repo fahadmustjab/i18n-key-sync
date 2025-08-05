@@ -4,7 +4,6 @@
   "description": "CLI and library to merge and sync missing keys across i18n JSON files",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "private": true,
   "bin": {
     "i18n-key-sync": "./dist/cli/cli.js"
   },
@@ -24,12 +23,11 @@
     ]
   },
   "scripts": {
-    "build": "tsc",
-    "clean": "rm -rf dist",
-    "prepare": "npm run build",
+    "build": "tsc && tsc-alias",
+    "clean": "rimraf dist",
+    "prepare": "yarn build",
     "semantic-release": "semantic-release",
-    "test": "nyc --node-option=loader=ts-node/esm mocha",
-    "coverage": "nyc report --reporter=lcov --reporter=text-summary"
+    "test": "mocha -r ts-node/register/transpile-only --extension ts tests/**/*.spec.ts"
   },
   "files": [
     "dist"
@@ -67,6 +65,7 @@
     "semantic-release": "^24.2.7",
     "sinon": "^21.0.0",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
     "tsx": "^4.20.3",
     "typescript": "^5.3.0"
   }
