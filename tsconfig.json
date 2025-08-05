@@ -34,6 +34,9 @@
     "isolatedModules": true,           // Required for ESM
     "allowJs": false                   // Don't allow plain JS files
   },
+   "ts-node": {
+    "esm": true
+  },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "tests"]
 }

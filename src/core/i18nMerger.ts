@@ -1,6 +1,7 @@
-import { FileUtils } from "../utils/fileUtils";
-import { KeyUtils } from "../utils/keyUtils";
-import  { MergeOptions, MergeResult } from "./types";
+import { FileUtils } from "../utils/fileUtils.js";
+import { KeyUtils } from "../utils/keyUtils.js";
+import { MergeOptions, MergeResult } from "./types.js";
+
 
 export class I18nMerger {
   constructor(private options: MergeOptions) {}
@@ -12,7 +13,6 @@ export class I18nMerger {
     const jsons: Record<string, any> = {};
     files.forEach((file) => (jsons[file] = FileUtils.readJson(FileUtils.resolveFile(folder, file))));
 
-    // collect keys
     const allKeys = new Set<string>();
     if (reference && jsons[reference]) {
       KeyUtils.collectKeys(jsons[reference], "", allKeys);

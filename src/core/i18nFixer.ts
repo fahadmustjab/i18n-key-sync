@@ -1,6 +1,6 @@
-import { FileUtils } from "../utils/fileUtils";
-import { KeyUtils } from "../utils/keyUtils";
-import type { MergeResult, MergeOptions } from "./types";
+import { FileUtils } from "../utils/fileUtils.js";
+import { KeyUtils } from "../utils/keyUtils.js";
+import { MergeOptions, MergeResult } from "./types.js";
 
 export class I18nFixer {
   constructor(private options: MergeOptions) {}

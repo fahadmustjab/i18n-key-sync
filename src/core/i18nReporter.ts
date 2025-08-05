@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import type { MergeResult } from "./types";
+import { MergeResult } from "./types.js";
 
 export class I18nReporter {
   report(result: MergeResult): boolean {
