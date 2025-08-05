@@ -5,11 +5,11 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "i18n-key-sync": "./dist/cli/cli.js"
+    "i18n-key-sync": "dist/cli/cli.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fahadmustjab/i18n-key-sync"
+    "url": "git+https://github.com/fahadmustjab/i18n-key-sync.git"
   },
   "exports": {
     ".": {
