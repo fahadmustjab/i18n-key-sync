@@ -23,7 +23,7 @@
     ]
   },
   "scripts": {
-    "build": "tsc && tsc-alias",
+    "build": "tsc",
     "clean": "rimraf dist",
     "prepare": "yarn build",
     "semantic-release": "semantic-release",
