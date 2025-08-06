@@ -1,15 +1,15 @@
-import { expect } from "chai";
-import * as sinon from "sinon";
-import { I18nReporter } from "../../src/core/i18nReporter";
+import { expect } from 'chai';
+import * as sinon from 'sinon';
+import { I18nReporter } from '../../src/core/i18nReporter.js';
 
-describe("I18nReporter", () => {
-  it("should log missing keys and return true when missing exist", () => {
+describe('I18nReporter', () => {
+  it('should log missing keys and return true when missing exist', () => {
     const reporter = new I18nReporter();
-    const consoleSpy = sinon.spy(console, "log");
+    const consoleSpy = sinon.spy(console, 'log');
 
     const hasMissing = reporter.report({
       merged: {},
-      missing: { fr: ["hello"], en: [] }
+      missing: { fr: ['hello'], en: [] },
     });
 
     expect(hasMissing).to.be.true;
@@ -18,13 +18,13 @@ describe("I18nReporter", () => {
     consoleSpy.restore();
   });
 
-  it("should log success message when no missing keys", () => {
+  it('should log success message when no missing keys', () => {
     const reporter = new I18nReporter();
-    const consoleSpy = sinon.spy(console, "log");
+    const consoleSpy = sinon.spy(console, 'log');
 
     const hasMissing = reporter.report({
       merged: {},
-      missing: { en: [] }
+      missing: { en: [] },
     });
 
     expect(hasMissing).to.be.false;

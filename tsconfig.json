@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
     /* === Core Language Features === */
-    "target": "ES2020",                // Use modern JS output
-    "module": "es2020",                // Keep ESM syntax
-    "lib": ["ES2020"],                 // Available APIs
-    "moduleResolution": "node",    // Correctly resolves Node ESM/CJS
-    "verbatimModuleSyntax": false,      // Enforce explicit `import type`
-    "esModuleInterop": true,           // Allow default imports from CJS
+    "target": "ES2020", // Use modern JS output
+    "module": "es2020", // Keep ESM syntax
+    "lib": ["ES2020"], // Available APIs
+    "moduleResolution": "node", // Correctly resolves Node ESM/CJS
+    "verbatimModuleSyntax": false, // Enforce explicit `import type`
+    "esModuleInterop": true, // Allow default imports from CJS
     "allowSyntheticDefaultImports": true,
 
     /* === Output & Build === */
-    "rootDir": "src",                  // Source folder
-    "outDir": "dist",                  // Compiled output
-    "declaration": true,               // Emit `.d.ts` type definitions
-    "declarationMap": true,            // Maps for debugging types
-    "sourceMap": true,                 // Maps for debugging code
-    "resolveJsonModule": true,         // Allow `import` of JSON files
+    "rootDir": "src", // Source folder
+    "outDir": "dist", // Compiled output
+    "declaration": true, // Emit `.d.ts` type definitions
+    "declarationMap": true, // Maps for debugging types
+    "sourceMap": true, // Maps for debugging code
+    "resolveJsonModule": true, // Allow `import` of JSON files
 
     /* === Type Safety === */
-    "strict": true,                    // Enable all strict checks
-    "noImplicitAny": true,             // Force explicit types
+    "strict": true, // Enable all strict checks
+    "noImplicitAny": true, // Force explicit types
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -27,14 +27,14 @@
     "forceConsistentCasingInFileNames": true,
 
     /* === Node.js Built-ins === */
-    "types": ["node","mocha"],                 // Include Node.js types
-    "skipLibCheck": true,              // Speed up builds
+    "types": ["node", "mocha"], // Include Node.js types
+    "skipLibCheck": true, // Speed up builds
 
     /* === Package Output === */
-    "isolatedModules": true,           // Required for ESM
-    "allowJs": false                   // Don't allow plain JS files
+    "isolatedModules": true, // Required for ESM
+    "allowJs": false // Don't allow plain JS files
   },
-   "ts-node": {
+  "ts-node": {
     "esm": true
   },
   "include": ["src"],

@@ -8,12 +8,12 @@ It ensures that all locale files have the same keys, detects missing or extra ke
 
 ## ✨ Features
 
-- ✅ Detects missing keys in translation files  
-- ✅ Detects extra/unexpected keys  
-- ✅ Optionally adds missing keys with indicators (e.g., `__MISSING__`)  
-- ✅ Works with any number of locale JSON files  
-- ✅ Provides a clear CLI output with summary  
-- ✅ Can be added as a **dev dependency** and used in CI pipelines  
+- ✅ Detects missing keys in translation files
+- ✅ Detects extra/unexpected keys
+- ✅ Optionally adds missing keys with indicators (e.g., `__MISSING__`)
+- ✅ Works with any number of locale JSON files
+- ✅ Provides a clear CLI output with summary
+- ✅ Can be added as a **dev dependency** and used in CI pipelines
 
 ---
 
@@ -21,6 +21,7 @@ It ensures that all locale files have the same keys, detects missing or extra ke
 
 ```bash
 npm install --save-dev i18n-key-sync
+```
 ````
 
 or with yarn:
@@ -169,14 +170,15 @@ MIT License © 2025 \[Fahad Mustjab]
 
 ## 💡 Roadmap
 
-* [ ] Support nested JSON key detection
-* [ ] Support YAML files
-* [ ] Add interactive mode for fixing keys
-* [ ] Provide VSCode extension for real-time i18n sync checks
+- [ ] Support nested JSON key detection
+- [ ] Support YAML files
+- [ ] Add interactive mode for fixing keys
+- [ ] Provide VSCode extension for real-time i18n sync checks
 
 ---
 
 🚀 **Maintained with ❤️ by [fahadmustjab](https://github.com/fahadmustjab)**
 
 ```
+
 ```

@@ -1,7 +1,6 @@
-import { FileUtils } from "../utils/fileUtils.js";
-import { KeyUtils } from "../utils/keyUtils.js";
-import { MergeOptions, MergeResult } from "./types.js";
-
+import { FileUtils } from '../utils/fileUtils.js';
+import { KeyUtils } from '../utils/keyUtils.js';
+import { MergeOptions, MergeResult } from './types.js';
 
 export class I18nMerger {
   constructor(private options: MergeOptions) {}
@@ -11,13 +10,15 @@ export class I18nMerger {
     const files = FileUtils.listJsonFiles(folder);
 
     const jsons: Record<string, any> = {};
-    files.forEach((file) => (jsons[file] = FileUtils.readJson(FileUtils.resolveFile(folder, file))));
+    files.forEach(
+      (file) => (jsons[file] = FileUtils.readJson(FileUtils.resolveFile(folder, file))),
+    );
 
     const allKeys = new Set<string>();
     if (reference && jsons[reference]) {
-      KeyUtils.collectKeys(jsons[reference], "", allKeys);
+      KeyUtils.collectKeys(jsons[reference], '', allKeys);
     } else {
-      Object.values(jsons).forEach((obj) => KeyUtils.collectKeys(obj, "", allKeys));
+      Object.values(jsons).forEach((obj) => KeyUtils.collectKeys(obj, '', allKeys));
     }
 
     const merged: Record<string, any> = {};
@@ -28,7 +29,7 @@ export class I18nMerger {
       allKeys.forEach((key) => {
         const value = KeyUtils.getNested(obj, key);
         if (value === undefined) missing[lang].push(key);
-        KeyUtils.setNested(merged, key, value ?? "");
+        KeyUtils.setNested(merged, key, value ?? '');
       });
     }
 

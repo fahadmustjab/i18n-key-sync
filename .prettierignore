@@ -1,0 +1,6 @@
+dist/
+node_modules/
+.github
+.husky
+.nyc_output
+coverage

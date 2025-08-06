@@ -1,5 +1,5 @@
-import chalk from "chalk";
-import { MergeResult } from "./types.js";
+import chalk from 'chalk';
+import { MergeResult } from './types.js';
 
 export class I18nReporter {
   report(result: MergeResult): boolean {
@@ -11,7 +11,7 @@ export class I18nReporter {
         result.missing[lang].forEach((key) => console.log(`  - ${key}`));
       }
     }
-    if (!hasMissing) console.log(chalk.green("All keys are in sync!"));
+    if (!hasMissing) console.log(chalk.green('All keys are in sync!'));
     return hasMissing;
   }
 }

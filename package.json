@@ -4,6 +4,7 @@
   "description": "CLI and library to merge and sync missing keys across i18n JSON files",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "bin": {
     "i18n-key-sync": "dist/cli/cli.js"
   },
@@ -27,7 +28,10 @@
     "clean": "rimraf dist",
     "prepare": "yarn build",
     "semantic-release": "semantic-release",
-    "test": "mocha -r ts-node/register/transpile-only --extension ts tests/**/*.spec.ts"
+    "test": "mocha -r ts-node/register/transpile-only --extension ts tests/**/*.spec.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
   },
   "files": [
     "dist"
@@ -58,15 +62,22 @@
     "@types/node": "^20.10.0",
     "@types/sinon": "^17.0.4",
     "@types/yargs": "^17.0.33",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
     "chai": "^5.2.1",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.3",
     "husky": "^9.1.7",
     "mocha": "^11.7.1",
     "nyc": "^17.1.0",
+    "prettier": "^3.6.2",
     "semantic-release": "^24.2.7",
     "sinon": "^21.0.0",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.16",
     "tsx": "^4.20.3",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "typescript-eslint": "^8.39.0"
   }
 }
